@@ -31,13 +31,13 @@
   </header>
 
   <!-- Hero -->
-  <section id="hero">
+  <section id="hero"><canvas id="particles"></canvas>
     <div class="hero-container">
       <img src="NEWSHH.png" alt="Tristan Lopez" class="profile-image">
       <div class="hero-text">
         <h1>Hi, I'm <span class="highlight">Tristan</span></h1>
         <p>Facebook Ads Manager | Campaign Optimizer | Meta Ads Strategist | Ad Creative Designer (Canva) | GoHighLevel | Social Media Manager</p>
-        <a href="#services" class="btn">Work With Me</a>
+        <a href="#contact" class="btn">Work With Me</a>
       </div>
     </div>
   </section>
@@ -48,7 +48,7 @@
       <h1>About Me</h1>
     <div class="about-me">
   <p>
-    I’m a <strong>Meta Ads Manager</strong> and <strong>Digital Marketing Virtual Assistant</strong> with <strong>2 years of experience</strong> managing Facebook and Instagram ad campaigns across various industries, including e-commerce, dropshipping, education, trucking, fashion, clothing, and deep cleaning services. My focus is on helping brands and businesses design <strong>profitable ad strategies</strong> that maximize ROI and drive consistent growth.
+    I’m a <strong>Meta Ads Manager</strong> and <strong>Digital Marketing Virtual Assistant</strong> with <strong>3 years of experience</strong> managing Facebook and Instagram ad campaigns across various industries, including e-commerce, dropshipping, education, trucking, fashion, clothing, and deep cleaning services. My focus is on helping brands and businesses design <strong>profitable ad strategies</strong> that maximize ROI and drive consistent growth.
   </p>
 
   <p>
@@ -105,7 +105,7 @@
   <!-- Portfolio -->
   <section id="portfolio">
     <div class="container">
-      <h1>Samples</h1>
+      <h1>Creative Samples</h1>
       <p>Here are some of my design and video editing projects created using <strong>Canva</strong>, <strong>CapCut</strong>, and ad creative tools.</p>
       
       <!-- Swiper -->
@@ -114,6 +114,11 @@
           <div class="swiper-slide portfolio-item">
             <img src="margarita03.jpg" alt="Canva Design">
             <h3>Canva Social Media Design</h3>
+            <p>A Magazine Style</p>
+          </div>
+          <div class="swiper-slide portfolio-item">
+            <img src="product1.jpeg" alt="Canva Design">
+            <h3>Product Design</h3>
             <p>A Magazine Style</p>
           </div>
           <div class="swiper-slide portfolio-item">
@@ -156,6 +161,20 @@
       </div>
     </div>
   </section>
+  <section class="video-section">
+  <h2>Video Creatives</h2>
+  <div class="video-container">
+    <div class="video-card">
+      <video src="ad.mp4" autoplay muted loop playsinline></video>
+      <p>Desktop Video Ad – Designed for widescreen and desktop campaigns.</p>
+    </div>
+    <div class="video-card">
+      <video src="ad2.mp4" autoplay muted loop playsinline></video>
+      <p>Mobile Video Ad – Designed for Reels and vertical-format campaigns.</p>
+    </div>
+  </div>
+</section>
+
 
    <section id="certificate">
     <div class="container">
@@ -297,61 +316,6 @@
 }
 </style>
 
-<script>
-(function(){
-  const proofImgs = document.querySelectorAll('.proof-img');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const closeBtn = document.querySelector('.lightbox-close');
-  const prevBtn = document.querySelector('.lightbox-prev');
-  const nextBtn = document.querySelector('.lightbox-next');
-
-  let currentIndex = 0;
-
-  function openLightbox(index) {
-    currentIndex = index;
-    lightboxImg.src = proofImgs[currentIndex].src;
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.setAttribute('aria-hidden', 'true');
-    lightboxImg.src = '';
-    document.body.style.overflow = '';
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % proofImgs.length;
-    lightboxImg.src = proofImgs[currentIndex].src;
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + proofImgs.length) % proofImgs.length;
-    lightboxImg.src = proofImgs[currentIndex].src;
-  }
-
-  proofImgs.forEach((img, index) => {
-    img.addEventListener('click', () => openLightbox(index));
-  });
-
-  closeBtn.addEventListener('click', closeLightbox);
-  nextBtn.addEventListener('click', showNext);
-  prevBtn.addEventListener('click', showPrev);
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (lightbox.getAttribute('aria-hidden') === 'false') {
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
-    }
-  });
-})();
-</script>
 
 
 
@@ -419,7 +383,7 @@
     <p class="guide">Click the Facebook icon to visit my profile.</p>
   </div>
   <div class="contact-icon">
-    <a href="https://www.facebook.com/share/19tU8kUSRA/" target="_blank">
+    <a href="https://www.facebook.com/tristan.lopez.121772/" target="_blank">
       <i id="fb-icon" class="fab fa-facebook" 
          style="font-size:28px; 
                 color:#fff; 
@@ -448,72 +412,6 @@
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-  <!-- JS -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Hero fade
-      const hero = document.querySelector("#hero");
-      new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          hero.classList.toggle("show", entry.isIntersecting);
-        });
-      }).observe(hero);
-
-      // Works Swiper
-      new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: { el: ".works-pagination", clickable: true },
-        navigation: { nextEl: ".works-next", prevEl: ".works-prev" },
-        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-      });
-
-      // Brochure Swiper
-      new Swiper(".mySwiperBrochure", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: { el: ".brochure-pagination", clickable: true },
-        navigation: { nextEl: ".brochure-next", prevEl: ".brochure-prev" },
-        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-      });
-
-      // Lightbox
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = document.getElementById("lightbox-img");
-      const lightboxVideo = document.getElementById("lightbox-video");
-      const lightboxClose = document.querySelector(".lightbox-close");
-
-      document.querySelectorAll(".portfolio-item img, .portfolio-item video, .zoomable").forEach(item => {
-        item.addEventListener("click", () => {
-          lightbox.classList.add("active");
-          if (item.tagName === "IMG") {
-            lightboxImg.src = item.src;
-            lightboxImg.style.display = "block";
-            lightboxVideo.style.display = "none";
-          } else {
-            lightboxVideo.querySelector("source").src = item.querySelector("source").src;
-            lightboxVideo.load();
-            lightboxImg.style.display = "none";
-            lightboxVideo.style.display = "block";
-          }
-        });
-      });
-
-      lightboxClose.addEventListener("click", () => {
-        lightbox.classList.remove("active");
-        lightboxVideo.pause();
-      });
-
-      lightbox.addEventListener("click", e => {
-        if (e.target === lightbox) {
-          lightbox.classList.remove("active");
-          lightboxVideo.pause();
-        }
-      });
-    });
-  </script>
 
   <!-- Lightbox Modal -->
   <div class="lightbox" id="lightbox">
@@ -524,9 +422,9 @@
       Your browser does not support the video tag.
     </video>
   </div>
+  <!-- Particle Background -->
+
+<script src="script.js"></script>
+
 </body>
 </html>
-
-
-
-
