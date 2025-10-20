@@ -32,33 +32,39 @@ header {
 }
 
 .navbar {
+   height: 80px;            /* Fix navbar height */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;        /* Prevent logo from pushing navbar */
+  padding: 0 30px;
 }
 
-.logo {
-  display: inline-block;
-  background: linear-gradient(135deg, #0d6efd, #003f88); /* bold blue gradient */
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px; /* clean rectangular */
-  font-weight: 700;
+/* Clean logo, no button styling */
+.site-logo {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: 0.3s ease;
 }
 
-.logo:hover {
-  background: linear-gradient(135deg, #0b5ed7, #002855); /* sharper hover */
-  transform: translateY(-2px);
+.site-logo img {
+ height: 70px;                    /* adjust size */
+  width: 70px;
+  border-radius: 50%;              /* makes it round */
+  background: white;               /* white background */
+  padding: 5px;                    /* clean spacing around image */
+  object-fit: cover;
+  border: 2px solid #ddd;          /* optional thin border */
 }
+
 
 /* Navigation Links */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 25px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
@@ -72,7 +78,7 @@ header {
 }
 
 .nav-links a:hover {
-  background: #0d6efd;
+  background: #0052A2;
   color: #fff;
 }
 
@@ -116,14 +122,14 @@ header {
   height: 320px;
   object-fit: cover;
   border-radius: 12px; /* no funky shapes */
-  border: 4px solid #0d6efd;
+  border: 4px solid #000B18;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .profile-image:hover {
   transform: scale(1.05);
-  border-color: #0b5ed7;
+  border-color: #00172D;
 }
 
 .hero-text h1 {
@@ -152,7 +158,7 @@ header {
 }
 
 .btn:hover {
-  background: #0b5ed7;
+  background: #00172D;
   transform: translateY(-3px);
 }
 
@@ -176,7 +182,7 @@ section {
 section h1 {
   font-size: 2.6rem;
   margin-bottom: 20px;
-  color: #0d6efd;
+  color: #00498D;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -188,7 +194,7 @@ section h1::after {
   display: block;
   width: 70px;
   height: 4px;
-  background: #0d6efd;
+  background: #00172D;
   margin: 10px auto 0;
   border-radius: 2px;
 }
@@ -227,7 +233,7 @@ section p {
 .service i {
   font-size: 42px;
   margin-bottom: 20px;
-  color: #0d6efd;
+  color: #00498D;
 }
 
 /* ===========================
@@ -289,7 +295,7 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #0d6efd;              /* solid bold blue */
+  background: #00172D;              /* solid bold blue */
   color: #fff;
   padding: 10px 22px;
   border-radius: 50px;              /* pill shape */
@@ -302,16 +308,11 @@ footer {
   transition: all 0.3s ease;
 }
 
-.logo:hover {
-  background: #0b5ed7;              /* darker hover */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(13,110,253,0.4);
-}
 
 /* If you use an icon or image inside the logo */
 .logo img,
 .logo i {
-  width: 28px;
+  width: 200px;
   height: 28px;
   margin-right: 8px;                /* space between icon and text */
   object-fit: contain;
@@ -333,4 +334,72 @@ footer {
   margin: 20px auto; /* centers each image with space */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+#works1 {
+  margin-top: -50px;  /* pulls this section closer to the previous one */
+}
+/* ===== CONTACT SECTION ===== */
+#contact {
+  background: #f8f9fa;
+  padding: 80px 20px;
+}
+
+.contact-letters {
+  text-align: left;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+}
+
+.contact-letters span {
+  display: inline-block;
+}
+
+.contact-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.contact-text {
+  text-align: left;
+}
+
+.contact-text .label {
+  font-weight: bold;
+  color: #00172D;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.contact-text p {
+  margin: 0;
+  color: #333;
+}
+
+.contact-icon i {
+  font-size: 22px;
+  color: #00172D;
+}
+
+/* Facebook icon adjustments */
+#fb-icon {
+  font-size: 22px !important;
+  padding: 12px !important;
 }
