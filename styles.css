@@ -48,14 +48,35 @@ header {
 }
 
 .site-logo img {
- height: 70px;                    /* adjust size */
+  height: 70px;
   width: 70px;
-  border-radius: 50%;              /* makes it round */
-  background: white;               /* white background */
-  padding: 5px;                    /* clean spacing around image */
+  border-radius: 50%;
+  background: white;
+  padding: 5px;
   object-fit: cover;
-  border: 2px solid #ddd;          /* optional thin border */
+  border: 2px solid #ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: floatLogo 3s ease-in-out infinite;
 }
+
+.site-logo img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(150, 150, 150, 0.8);
+}
+
+/* Floating animation */
+@keyframes floatLogo {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 
 
 /* Navigation Links */
@@ -147,19 +168,49 @@ header {
 
 .btn {
   display: inline-block;
-  padding: 14px 28px;
-  background: #0d6efd;
-  color: #fff;
-  border-radius: 6px;
+  padding: 14px 32px;
+  background: rgba(255, 255, 255, 0.08); /* glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+/* Glow shine animation */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -50px;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(25deg);
+  transition: 0.6s;
+}
+
+.btn:hover::before {
+  top: 0;
+  left: 0;
+}
+
+/* Hover glow + text animation */
 .btn:hover {
-  background: #00172D;
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 25px #00498D;
+  color: #0709a3;
+  text-shadow: 0 0 8px rgba(0, 187, 255, 0.8);
 }
 
 /* ===========================
@@ -182,7 +233,7 @@ section {
 section h1 {
   font-size: 2.6rem;
   margin-bottom: 20px;
-  color: #00498D;
+  color: #030A1C;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -240,12 +291,16 @@ section p {
    Footer
 =========================== */
 footer {
-  text-align: center;
-  padding: 25px 10px;
+  
+  width: 100%;          /* ensures full width */
+  padding: 25px 0;      /* vertical padding only */
+  margin: 0;            /* remove any margin */
   background: #1c1f26;
   color: #ccc;
+  text-align: center;
   font-size: 1rem;
   font-weight: 500;
+
 }
 /* ===========================
    Image Size Fixes
@@ -403,3 +458,101 @@ footer {
   font-size: 22px !important;
   padding: 12px !important;
 }
+.video-section {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.video-section h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.video-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.video-card {
+  padding: 15px;
+  border-radius: 10px;
+  width: 280px;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+  transform: rotate(-2deg);
+  transition: 0.3s;
+}
+
+.video-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.video-card:hover {
+  transform: scale(1.05);
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.video-card p {
+  margin-top: 10px;
+  font-weight: 500;
+}
+.video-card:nth-child(1) {
+  width: 380px; /* make it bigger */
+}
+.portfolio-section {
+  padding: 50px 0;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.portfolio-section h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.swiper-slide {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.swiper-slide:hover {
+  transform: scale(1.05);
+}
+
+.swiper-slide img,
+.swiper-slide video {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.swiper-slide h3 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.swiper-slide p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Swiper navigation */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #333;
+}
+
+.swiper-pagination-bullet {
+  background: #333;
+}
+
